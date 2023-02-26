@@ -1,0 +1,94 @@
+<form>
+  <table>
+    <tr>
+      <td>
+        <label for="Afees">Fees for option A:</label>
+      </td>
+      <td>
+        <input type="number" name="Agrade" value="60000">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="Asalaries">Salaries for option A:</label>
+      </td>
+      {% for salary in A_salaries%}
+        <td>
+          <input type="number" name="Agrade" value="{{salary}}">
+        </td>
+      {% endfor %}
+    </tr>
+    <tr>
+        <td>
+          <label for="hiresA">Hires for option A:</label>
+        </td>
+      {% for hires in A_hires%}
+        <td>
+          <input type="number" name="Ahires" value="{{hires}}">
+        </td>
+      {% endfor %}
+      </tr>
+      <tr>
+        <td>
+          <label for="percentA">Percentage for option A:</label>
+        </td>
+      {% for percent in A_percent%}
+        <td>
+          <input type="number" name="Ap" value="{{percent}}">
+        </td>
+      {% endfor %}
+      </tr>
+      <tr>
+        <td>
+          <label for="Bsalaries">Salary for option B:</label>
+        </td>
+      {% for salary in B_salary%}
+        <td>
+          <input type="number" name="Bgrade" value="{{salary}}">
+        </td>
+      {% endfor %}
+      </tr>
+      <tr>
+        <td>
+          <label for="hiresB">Hires for option B:</label>
+        </td>
+      {% for hires in B_hires%}
+        <td>
+          <input type="number" name="Bhires" value="{{hires}}">
+        </td>
+      {% endfor %}
+      </tr>
+      <tr>
+        <td>
+          <label for="percentB">Percentage for option B:</label>
+        </td>
+        <td>
+          <input type="number" name="Bp" value="{{B_percent}}">
+        </td>
+      </tr>
+    </table>
+  <button type="submit" formaction="/">Find The Savings!</button>
+</form>
+{% if A_costs %}
+<h1>Here are how much you can save!</h1>
+<table>
+    <tr>
+      <td>Option A: </td>
+      {% for cost in A_costs%}
+        <td>{{cost}}</td>
+      {% endfor %}
+    </tr>
+    <tr>
+      <td>Option B: </td>
+      {% for cost in B_costs%}
+        <td>{{cost}}</td>
+      {% endfor %}
+    </tr>
+    <tr>
+      <td>Savings: </td>
+      {% for saved in Savings%}
+        <td>{{ saved }}</td>
+      {% endfor %}
+    </tr>
+  </table>
+{% endif %}
